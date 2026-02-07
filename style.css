@@ -152,6 +152,11 @@ meter {
   );
 }
 
+.lights {
+  position: absolute;
+  top: 0;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -166,42 +171,6 @@ meter {
 .card:hover {
   transform: scale(1.15);
   box-shadow: 1rem 1rem 1rem rgba(37, 35, 35, 0.31);
-}
-
-.lights-control {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  gap: 1rem;
-  bottom: 6rem;
-}
-
-.lights-label {
-  width: 4.2rem;
-  height: 2.2rem;
-  border-radius: 1.5rem;
-  padding: 0.3rem 0.4rem;
-  background-color: rgba(69, 206, 252, 1);
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.lights-label::after {
-  content: "";
-  display: block;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background-color: #fff;
-  transition: 0.3s;
-}
-
-.lights-input:checked + .lights-label {
-  background-color: rgba(154, 87, 199, 0.904);
-}
-
-.lights-input:checked + .lights-label::after {
-  transform: translateX(1.8rem);
 }
 
 .top {
@@ -243,12 +212,12 @@ meter {
   left: 0;
   background: linear-gradient(
     0deg,
-    rgba(185, 79, 255, 1) 0%,
-    rgba(255, 69, 69, 1) 20%,
-    rgba(252, 176, 69, 1) 40%,
-    rgba(252, 237, 69, 1) 60%,
-    rgba(69, 252, 90, 1) 80%,
-    rgba(69, 206, 252, 1) 100%
+    #b94fff 0%,
+    #ff4545 20%,
+    #fcb045 40%,
+    #fced45 60%,
+    #45fc5a 80%,
+    #45cefc 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -635,4 +604,44 @@ meter {
 
 .username {
   font-size: 1.2rem;
+}
+
+.lights-control {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background-color: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 2rem;
+  gap: 1rem;
+  bottom: 6rem;
+  font-weight: 700;
+}
+
+.lights-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  padding: 0.3rem 0.4rem;
+  background-color: rgba(69, 206, 252, 1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.lights-input:checked + .lights-label {
+  background-color: rgba(154, 87, 199, 0.904);
+}
+
+.lights-input:checked + .lights-label::after {
+  transform: translateX(1.8rem);
 }
