@@ -21,6 +21,7 @@ html {
   text-size-adjust: none;
   font-size: 62.5%;
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 body {
@@ -165,6 +166,42 @@ meter {
 .card:hover {
   transform: scale(1.15);
   box-shadow: 1rem 1rem 1rem rgba(37, 35, 35, 0.31);
+}
+
+.lights-control {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  gap: 1rem;
+  bottom: 6rem;
+}
+
+.lights-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  padding: 0.3rem 0.4rem;
+  background-color: rgba(69, 206, 252, 1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.lights-input:checked + .lights-label {
+  background-color: rgba(154, 87, 199, 0.904);
+}
+
+.lights-input:checked + .lights-label::after {
+  transform: translateX(1.8rem);
 }
 
 .top {
