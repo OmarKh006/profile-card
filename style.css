@@ -123,8 +123,9 @@ meter {
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   background:
     linear-gradient(to bottom, #fff 0%, #fff 40%, rgba(255, 255, 255, 0) 100%),
@@ -153,8 +154,43 @@ meter {
 }
 
 .lights {
-  position: absolute;
-  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.b-odd {
+  animation: lights 1s alternate infinite 0.5s;
+}
+
+.b-even {
+  animation: lights 1s alternate-reverse infinite;
+}
+
+@keyframes lights {
+  0% {
+    fill: #b94fff;
+  }
+  20% {
+    fill: #ff4545;
+  }
+  40% {
+    fill: #fcb045;
+  }
+  60% {
+    fill: #fced45;
+  }
+  80% {
+    fill: #45fc5a;
+  }
+  100% {
+    fill: #45cefc;
+  }
+}
+
+.container:has(.lights-input:checked) .lights {
+  opacity: 1;
+  visibility: visible;
 }
 
 .card {
@@ -536,12 +572,12 @@ meter {
 .mid {
   margin: 0 auto;
   text-align: center;
-  margin-top: -6rem;
+  margin-top: -5rem;
   z-index: 1;
 }
 
 .logo {
-  width: 13rem;
+  width: 14.5rem;
   height: 8rem;
   border-radius: 1rem;
   border: 0.4rem solid #fff;
@@ -608,13 +644,12 @@ meter {
 
 .lights-control {
   display: flex;
-  position: absolute;
   align-items: center;
   background-color: #fff;
   padding: 0.6rem 0.8rem;
   border-radius: 2rem;
   gap: 1rem;
-  bottom: 6rem;
+  margin-bottom: 4rem;
   font-weight: 700;
 }
 
